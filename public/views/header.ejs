@@ -1,0 +1,15 @@
+<header class="row ptb5">
+    <h1 class="col-sm-4 col-sm-offset-1 mtb20"><a href="/"><%= appName %></a></h1>
+    <div class="col-sm-7 text-right ptb20">
+        <%if (!logged) { %>
+        <a href="/login/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Login/Signup</a>
+        <% } else { %>
+                <a href="/" class="beauty-button transitioned">Home</a>
+                <a href="/mybooks" class="beauty-button transitioned">My Books</a>
+                <a href="/sent" class="beauty-button">Sent Trades</a>
+                <a href="/received" class="beauty-button">Received Trades</a>
+                <a href="/account" class="beauty-button">Account</a>
+                <a href="/logout" class="beauty-button">Logout</a>
+        <% } %>
+    </div>
+</header>

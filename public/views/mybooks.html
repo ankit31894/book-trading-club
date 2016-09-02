@@ -1,0 +1,21 @@
+<div class="col-sm-3 col-sm-push-9">
+  <div ng-if="_getMyBooks">Loading</div>
+  <div ng-if="E_getMyBooks">{{E_getMyBooks}} <a href="#" ng-click="getMyBooks()">Try Again</a></div>
+  <div>
+    <form class="ptb15" ng-submit="insertBook()">
+      <input name="poll" ng-model="formData.bookName" placeholder="Insert Book Name" class="col-xs-12 ptb10 mtb5">
+      <input name="poll2" ng-model="formData.isbn" placeholder="Insert 10 digit ISBN" class="col-xs-12 ptb10 mtb5">
+      <button type="submit" class="ptb10 btn-primary">Submit</button>
+      <div ng-if="_insertBook">Loading</div>
+      <div ng-if="E_insertBook">{{E_insertBook}} <a href="#" ng-click="insertBook()">Try Again</a></div>
+    </form>
+  </div>
+</div>
+<div class="col-sm-9 col-sm-pull-3">
+  <div ng-repeat="(key, value) in books" class="col-sm-2 text-center">
+    <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
+    <a href="/book/{{value._id}}" class="col-xs-12 ptb15 text-center transitioned heee">
+      {{value.bookName}}
+    </a>
+  </div>
+</div>

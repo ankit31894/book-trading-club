@@ -1,0 +1,16 @@
+<div ng-if="_getLoggedStatus">Checking Logged In Status</div>
+<div ng-if="E_getLoggedStatus">{{E_getLoggedStatus}} <a href="#" ng-click="getLoggedStatus()">Try Again</a></div>
+
+<div>
+	<h3>
+		Trade Books
+	</h3>
+	<div ng-if="_getAllBooks">Loading</div>
+	<div ng-if="E_getAllBooks">{{E_getAllBooks}} <a href="#" ng-click="getAllBooks()">Try Again</a></div>
+	<div ng-repeat="(key, value) in books" class="col-sm-2 text-center">
+		<img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg" style="display:inline-block;">
+		<a href="/book/{{value._id}}" class="col-xs-12 ptb15 text-center transitioned heee" style="display:block;">
+		  {{value.bookName}}
+		</a>
+	</div>
+</div>

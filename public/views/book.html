@@ -1,0 +1,16 @@
+{{E_getBook}}
+<div class="">
+    <h2 href="/book/{{book._id}}" class="ptb15 transitioned heee">
+      {{book.bookName}}
+    </h2>
+    <img src="http://images.amazon.com/images/P/{{book.isbn}}.01.20TRZZZZ.jpg">
+</div>
+<div class="mt30" ng-if="!E_GetMyBook">
+	<h3>Your Books <span class="colccc">(Click on any book to trade)</span></h3>
+  <div ng-repeat="(key, value) in myBooks" class="col-sm-2 text-center">
+    <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
+    <span ng-click="proposeTrade(value._id)" class="col-xs-12 ptb15 text-center transitioned heee">
+      {{value.bookName}}
+    </span>
+  </div>
+</div>
