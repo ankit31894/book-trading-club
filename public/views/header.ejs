@@ -1,8 +1,8 @@
-<header class="row ptb5">
-    <h1 class="col-sm-4 col-sm-offset-1 mtb20"><a href="/"><%= appName %></a></h1>
-    <div class="col-sm-7 text-right ptb20">
+<header class="header">
+    <h1 class='header__elegantshadow'><a href="/"><%= appName %></a></h1>
+    <div class="text-center header__tabs ptb50">
         <%if (!logged) { %>
-        <a href="/login/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Login/Signup</a>
+        <a href="/login/google" class="header__btn header__btn--animate"><i class="fa fa-google-plus"></i> Login/Signup</a>
         <% } else { %>
                 <a href="/" class="beauty-button transitioned">Home</a>
                 <a href="/mybooks" class="beauty-button transitioned">My Books</a>

@@ -3,15 +3,36 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-	sass: {                              // Task
+    sass: {                              // Task
         dist: {                            // Target
-          options: {                       // Target options
-            style: 'expanded'
-          },
-          files: {                         // Dictionary of files
-              'public/css/main.css': 'public/css/main.scss',       // 'destination': 'source'
-              'public/css/books.css':'public/css/books.scss',       // 'destination': 'source'
-          }
+            options: {                       // Target options
+                style: 'expanded'
+            },
+            files: {                         // Dictionary of files
+                'public/css/style.max.css': 'public/css/style.scss',       // 'destination': 'source'
+            }
+        }
+    },
+    cssnano: {
+            dist: {
+                files: {
+                    'public/css/style.nano.unprefixed.css': 'public/css/style.max.css'
+                }
+            }
+        },
+    postcss: {
+        options: {
+            map: true,
+            processors: [
+                require('autoprefixer')({
+                    browsers: ['last 2 versions']
+                })
+            ]
+        },
+        dist: {
+            files: {
+                'public/css/style.css': 'public/css/style.nano.unprefixed.css'
+            }
         }
     },
     mochaTest: {
@@ -27,16 +48,16 @@ module.exports = function(grunt) {
       }
     },
     watch: {
+        sass: {
+            files: ['public/style.scss','public/css/**/*.scss'],
+            tasks: ['sass','cssnano','postcss']
+        },
         js: {
                 options: {
                   spawn: false,
                 },
                 files: ['test/**/*.js','app/*.js'],
                 tasks: ['mochaTest']
-            },
-        css: {
-            files: ['**/*.scss'],
-            tasks: ['sass']
         }
     }
 });
@@ -49,6 +70,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     // Default task(s).
+    grunt.loadNpmTasks('grunt-cssnano');
+    grunt.loadNpmTasks('grunt-postcss');
     grunt.registerTask('default', ['watch']);
 
 };
