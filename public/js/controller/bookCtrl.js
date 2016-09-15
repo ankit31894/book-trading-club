@@ -9,7 +9,6 @@ mainApp.controller('BookController',['$scope','$http','$routeParams','myhttp','$
       myhttp.fetch({
           url:'/getsinglebook',method:'POST',data:{bookId:$scope.wishbook}
       }).then(function(d){
-        console.log(d)
           $scope.book=d;
       },function(err){
           $scope.E_getBook=err;
@@ -25,8 +24,8 @@ mainApp.controller('BookController',['$scope','$http','$routeParams','myhttp','$
           url:'/getmybooks'
       }).then(function(d){
           $scope.myBooks=d;
-      },function(err){
-          $scope.E_getMyBook=err;
+      },function(error){
+          $scope.E_getMyBook=error;
       }).finally(function(){
           $scope._getMyBook=false;
       });
@@ -48,20 +47,3 @@ mainApp.controller('BookController',['$scope','$http','$routeParams','myhttp','$
   };
 
 }]);
-mainApp.factory('myhttp', function($http,$q) {
-
-   return {
-        fetch: function(req) {
-            var deferred = $q.defer();
-             //return the promise directly.
-             $http(req)
-               .then(function(result) {
-                    deferred.resolve(result.data)
-                },function(err){
-                    deferred.reject(err.data)
-                });
-            return deferred.promise;
-
-        }
-   }
-});

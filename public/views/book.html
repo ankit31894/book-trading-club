@@ -47,9 +47,9 @@
     </div>
 
 </div>
-<div class="mt30 col-sm-8 text-center" ng-if="E_getMyBook&&E_getMyBook.code===401">
+<div class="mt30 col-sm-8 text-center" ng-if="E_getMyBook">
     <h2>
-        Please Login to propose a trade
+        {{E_getMyBook}}
     </h2>
 </div>
 <div class="mt30 col-sm-8 text-center" ng-if="myBooks.length!==0">

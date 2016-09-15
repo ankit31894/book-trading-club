@@ -1,5 +1,5 @@
 var mainApp=angular.module('AccCtrl', []);
-mainApp.controller('AccountController', function($scope,$http,$location,myhttp) {
+mainApp.controller('AccountController',['$scope','myhttp', function($scope,myhttp) {
   $scope.formdata={
     name:'',
     city:'',
@@ -19,23 +19,4 @@ mainApp.controller('AccountController', function($scope,$http,$location,myhttp) 
           $scope._update=false;
       });
   })();
-});
-
-
-mainApp.factory('myhttp', function($http,$q) {
-
-   return {
-        fetch: function(req) {
-            var deferred = $q.defer();
-             //return the promise directly.
-             $http(req)
-               .then(function(result) {
-                    deferred.resolve(result.data)
-                },function(err){
-                    deferred.reject(err.data)
-                });
-            return deferred.promise;
-
-        }
-   }
-});
+}]);

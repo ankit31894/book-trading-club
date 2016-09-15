@@ -8,7 +8,6 @@ mainApp.controller('SentController', function($scope,$http,$location,myhttp) {
       myhttp.fetch({
           url:'/getwishbooks',method:'GET'
       }).then(function(d){
-            console.log(d);
           $scope.books=d;
       },function(err){
           $scope.E_getWishBooks=err;
@@ -18,23 +17,4 @@ mainApp.controller('SentController', function($scope,$http,$location,myhttp) {
   })();
 
 
-});
-
-
-mainApp.factory('myhttp', function($http,$q) {
-
-   return {
-        fetch: function(req) {
-            var deferred = $q.defer();
-             //return the promise directly.
-             $http(req)
-               .then(function(result) {
-                    deferred.resolve(result.data)
-                },function(err){
-                    deferred.reject(err.data)
-                });
-            return deferred.promise;
-
-        }
-   }
 });

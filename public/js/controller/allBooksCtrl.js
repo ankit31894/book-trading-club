@@ -30,7 +30,7 @@ mainApp.factory('myhttp', function($http,$q) {
                .then(function(result) {
                     deferred.resolve(result.data)
                 },function(err){
-                    deferred.reject(err.data)
+                    deferred.reject(err.data);
                 });
             return deferred.promise;
 
