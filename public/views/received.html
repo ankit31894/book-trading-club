@@ -3,8 +3,8 @@
 		Received Trades
 	</div>
     <h3 ng-if="(books.length===0||books.exchangeReceived.length===0)&&!_getComingBooks">No Trades to Show</h3>
-    <div ng-if="_getComingBooks">Loading</div>
-    <h3 ng-if="E_getComingBooks">{{E_getComingBooks}} <a href="#" ng-click="getComingBooks()">Try Again</a></h3>
+    <h3 ng-if="_getComingBooks" class="col-xs-12 text-center">Loading</h3>
+	<h3 ng-if="E_getComingBooks" class="col-xs-12 text-center">{{E_getComingBooks}} <a href="#" ng-click="getComingBooks()">Try Again</a></h3>
 
     <div ng-repeat="(key, value) in books" class="exchange">
         <div ng-repeat="(key1, value1) in value.exchangeReceived">

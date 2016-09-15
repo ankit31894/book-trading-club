@@ -3,8 +3,8 @@
 		Awaiting Trades
 	</div>
     <h3 ng-if="books.length===0&&!_getWishBooks">No Trades to Show</h3>
-    <div ng-if="_getWishBooks">Loading</div>
-    <h3 ng-if="E_getWishBooks">{{E_getWishBooks}} <a href="#" ng-click="getWishBooks()">Try Again</a></h3>
+	<h3 ng-if="_getWishBooks" class="col-xs-12 text-center">Loading</h3>
+	<h3 ng-if="E_getWishBooks" class="col-xs-12 text-center">{{E_getWishBooks}} <a href="#" ng-click="getWishBooks()">Try Again</a></h3>
     <div ng-repeat="(key, value) in books" class="exchange">
       <div class=" col-xs-6 col-sm-3 col-sm-offset-3">
         <div class="col-xs-12 ptb15 exchange__title">You want this book</div>

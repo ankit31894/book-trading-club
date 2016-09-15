@@ -4,8 +4,6 @@
 	</div>
 
     <div class="col-sm-3 col-sm-push-9">
-      <div ng-if="_getMyBooks">Loading</div>
-      <div ng-if="E_getMyBooks">{{E_getMyBooks}} <a href="#" ng-click="getMyBooks()">Try Again</a></div>
 
 
 
@@ -25,6 +23,8 @@
 
     </div>
     <div class="col-sm-9 col-sm-pull-3 pt30">
+		<h3 ng-if="_getMyBooks" class="col-xs-12 text-center">Loading</h3>
+        <h3 ng-if="E_getMyBooks" class="col-xs-12 text-center">{{E_getMyBooks}} <a href="#" ng-click="getMyBooks()">Try Again</a></h3>
         <div class="component col-xs-12 col-sm-4" ng-repeat="(key, value) in books">
     		<ul class="align">
     			<li>
