@@ -1,16 +1,59 @@
-<div ng-if="_getLoggedStatus">Checking Logged In Status</div>
-<div ng-if="E_getLoggedStatus">{{E_getLoggedStatus}} <a href="#" ng-click="getLoggedStatus()">Try Again</a></div>
 
-<div>
-	<h3>
-		Trade Books
-	</h3>
+<div class="book-container">
+	<div class="book-container__header text-center pb15 mb30">
+		Available Books to Trade
+	</div>
 	<div ng-if="_getAllBooks">Loading</div>
 	<div ng-if="E_getAllBooks">{{E_getAllBooks}} <a href="#" ng-click="getAllBooks()">Try Again</a></div>
-	<div ng-repeat="(key, value) in books" class="col-sm-2 text-center">
-		<img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg" style="display:inline-block;">
-		<a href="/book/{{value._id}}" class="col-xs-12 ptb15 text-center transitioned heee" style="display:block;">
-		  {{value.bookName}}
-		</a>
+
+
+
+
+	<!-- CSS class name are not according to BEM as the code is from external source-->
+	<div class="component col-xs-12 col-sm-4" ng-repeat="(key, value) in books">
+		<ul class="align">
+			<li>
+				<figure class='book'>
+
+					<!-- Front -->
+
+					<ul class='hardcover_front'>
+						<li style="background-image:url('http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg')">
+						</li>
+						<li></li>
+					</ul>
+
+					<!-- Pages -->
+
+					<ul class='page'>
+						<li></li>
+						<li>
+							<a href="/book/{{value._id}}" class="btn">
+							  {{value.bookName}}
+							</a>
+						</li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+
+					<!-- Back -->
+
+					<ul class='hardcover_back'>
+						<li></li>
+						<li></li>
+					</ul>
+					<ul class='book_spine'>
+						<li></li>
+						<li></li>
+					</ul>
+				</figure>
+			</li>
+		</ul>
 	</div>
+
+
+
+
+
 </div>

@@ -1,0 +1,8 @@
+.exchange{
+    @include element('title'){
+        font-family: 'Source Sans Pro';
+    }
+    @include element('divider'){
+        border-left: solid 1px #408382;
+    }
+}

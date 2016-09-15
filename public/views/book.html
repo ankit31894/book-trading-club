@@ -1,16 +1,65 @@
 {{E_getBook}}
-<div class="">
-    <h2 href="/book/{{book._id}}" class="ptb15 transitioned heee">
-      {{book.bookName}}
-    </h2>
-    <img src="http://images.amazon.com/images/P/{{book.isbn}}.01.20TRZZZZ.jpg">
+<div class="book-container">
+	<div class="book-container__header text-center pb15 mb30">
+		{{book.bookName}}
+	</div>
+    <!-- CSS class name are not according to BEM as the code is from external source-->
+    <div class="component col-xs-12 col-sm-4">
+        <ul class="align">
+            <li>
+                <figure class='book'>
+
+                    <!-- Front -->
+
+                    <ul class='hardcover_front'>
+                        <li style="background-image:url('http://images.amazon.com/images/P/{{book.isbn}}.01.20TRZZZZ.jpg')">
+                        </li>
+                        <li></li>
+                    </ul>
+
+                    <!-- Pages -->
+
+                    <ul class='page'>
+                        <li></li>
+                        <li>
+                            <a href="/book/{{book._id}}" class="btn">
+                              {{book.bookName}}
+                            </a>
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+
+                    <!-- Back -->
+
+                    <ul class='hardcover_back'>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class='book_spine'>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </figure>
+            </li>
+        </ul>
+    </div>
+
 </div>
-<div class="mt30" ng-if="!E_GetMyBook">
-	<h3>Your Books <span class="colccc">(Click on any book to trade)</span></h3>
-  <div ng-repeat="(key, value) in myBooks" class="col-sm-2 text-center">
-    <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
-    <span ng-click="proposeTrade(value._id)" class="col-xs-12 ptb15 text-center transitioned heee">
-      {{value.bookName}}
-    </span>
-  </div>
+<div class="mt30 col-sm-8 text-center" ng-if="E_getMyBook&&E_getMyBook.code===401">
+    <h2>
+        Please Login to propose a trade
+    </h2>
+</div>
+<div class="mt30 col-sm-8 text-center" ng-if="myBooks.length!==0">
+    <h3 class="mb30">Select one of your book to propose trade</h3>
+    <div ng-repeat="(key, value) in myBooks" class="col-sm-4">
+		<img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
+		<span ng-click="proposeTrade(value._id)" class="col-xs-12 ptb15 transitioned" style="cursor:pointer;">
+			<h4>
+				{{value.bookName}}
+			</h4>
+		</span>
+    </div>
 </div>

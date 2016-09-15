@@ -99,7 +99,7 @@ module.exports = function(app, passport) {
         res.status(err.status || 500);
         res.send(err);
     });
-    
+
 };
 
 // route middleware to make sure a user is logged in
@@ -115,5 +115,5 @@ function isLoggedIn(req, res, next) {
 function isLoggedIn2(req, res, next) {
     if (req.isAuthenticated())
         return next();
-    res.status(401).json({code:401});
+    res.status(401).send("You are not logged in.");
 }

@@ -1,21 +1,70 @@
-<div class="col-sm-3 col-sm-push-9">
-  <div ng-if="_getMyBooks">Loading</div>
-  <div ng-if="E_getMyBooks">{{E_getMyBooks}} <a href="#" ng-click="getMyBooks()">Try Again</a></div>
-  <div>
-    <form class="ptb15" ng-submit="insertBook()">
-      <input name="poll" ng-model="formData.bookName" placeholder="Insert Book Name" class="col-xs-12 ptb10 mtb5">
-      <input name="poll2" ng-model="formData.isbn" placeholder="Insert 10 digit ISBN" class="col-xs-12 ptb10 mtb5">
-      <button type="submit" class="ptb10 btn-primary">Submit</button>
-      <div ng-if="_insertBook">Loading</div>
-      <div ng-if="E_insertBook">{{E_insertBook}} <a href="#" ng-click="insertBook()">Try Again</a></div>
-    </form>
-  </div>
-</div>
-<div class="col-sm-9 col-sm-pull-3">
-  <div ng-repeat="(key, value) in books" class="col-sm-2 text-center">
-    <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
-    <span class="col-xs-12 ptb15 text-center transitioned heee">
-      {{value.bookName}}
-    </span>
-  </div>
+<div class="book-container">
+	<div class="book-container__header text-center pb15 mb30">
+		My Books
+	</div>
+
+    <div class="col-sm-3 col-sm-push-9">
+      <div ng-if="_getMyBooks">Loading</div>
+      <div ng-if="E_getMyBooks">{{E_getMyBooks}} <a href="#" ng-click="getMyBooks()">Try Again</a></div>
+
+
+
+      <div class="form-wrapper">
+      		<h1 class="form-wrapper__title">Add Book</h1>
+
+      		<form class="form-wrapper__form" ng-submit="insertBook()">
+                <input type="text" class="form-wrapper__input" ng-model="formData.bookName" placeholder="Book Name">
+                <input type="text" class="form-wrapper__input" ng-model="formData.isbn" placeholder="10 Digit ISBN">
+                <button type="submit" class="form-wrapper__button">
+                  {{_insertBook===false?'Added':'Add'}}
+                </button>
+                <div ng-if="_insertBook">Loading</div>
+                <div ng-if="E_insertBook">{{E_insertBook}} <a href="#" ng-click="insertBook()">Try Again</a></div>
+      		</form>
+      </div>
+
+    </div>
+    <div class="col-sm-9 col-sm-pull-3 pt30">
+        <div class="component col-xs-12 col-sm-4" ng-repeat="(key, value) in books">
+    		<ul class="align">
+    			<li>
+    				<figure class='book'>
+
+    					<!-- Front -->
+
+    					<ul class='hardcover_front'>
+    						<li style="background-image:url('http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg')">
+    						</li>
+    						<li></li>
+    					</ul>
+
+    					<!-- Pages -->
+
+    					<ul class='page'>
+    						<li></li>
+    						<li>
+    							<a href="/book/{{value._id}}" class="btn">
+    							  {{value.bookName}}
+    							</a>
+    						</li>
+    						<li></li>
+    						<li></li>
+    						<li></li>
+    					</ul>
+
+    					<!-- Back -->
+
+    					<ul class='hardcover_back'>
+    						<li></li>
+    						<li></li>
+    					</ul>
+    					<ul class='book_spine'>
+    						<li></li>
+    						<li></li>
+    					</ul>
+    				</figure>
+    			</li>
+    		</ul>
+    	</div>
+    </div>
 </div>

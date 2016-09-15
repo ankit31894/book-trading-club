@@ -12,13 +12,16 @@
         @content;
     }
 }
-
+$red:#333;
 //objects for reusable code
 //components for BEM Blocks
 //resets for resetting the natural styles if needed
 @import "resets/_reset.scss";
 @import "objects/_general.scss";
 @import "components/_header.scss";
+@import "components/_exchange.scss";
+@import "components/_book-grid.scss";
+@import "components/_breeze-form.scss";
 @import "components/_content.scss";
 @import "components/_sidebar.scss";
 @import "components/_footer.scss";
@@ -29,8 +32,7 @@
   /* equal to footer height */
   margin-bottom: -142px;
   padding-bottom: 50px;
-  background:  #e7e5e4;
-}
+ }
 .page-wrap:after {
   content: "";
   display: block;

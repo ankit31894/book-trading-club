@@ -1,25 +1,26 @@
-<div ng-if="_getLoggedStatus">Checking Logged In Status</div>
-<div ng-if="E_getLoggedStatus">{{E_getLoggedStatus}} <a href="#" ng-click="getLoggedStatus()">Try Again</a></div>
-<div>
-  <h3>
-    Awaiting Trades
-  </h3>
-  <div ng-if="_getWishBooks">Loading</div>
-  <div ng-if="E_getWishBooks">{{E_getWishBooks}} <a href="#" ng-click="getWishBooks()">Try Again</a></div>
-  <div ng-repeat="(key, value) in books" class="text-center">
-      <div class="inblock text-right col-xs-6">
-        <div class="col-xs-12">You want this book</div>
+<div class="book-container text-center">
+	<div class="book-container__header pb15 mb30">
+		Awaiting Trades
+	</div>
+    <h3 ng-if="books.length===0&&!_getWishBooks">No Trades to Show</h3>
+    <div ng-if="_getWishBooks">Loading</div>
+    <h3 ng-if="E_getWishBooks">{{E_getWishBooks}} <a href="#" ng-click="getWishBooks()">Try Again</a></h3>
+    <div ng-repeat="(key, value) in books" class="exchange">
+      <div class=" col-xs-6 col-sm-3 col-sm-offset-3">
+        <div class="col-xs-12 ptb15 exchange__title">You want this book</div>
         <img src="http://images.amazon.com/images/P/{{value.exchangeMade.isbn}}.01.20TRZZZZ.jpg">
         <a class="col-xs-12 ptb15 transitioned heee" href="/book/{{value.exchangeMade._id}}">
-          {{value.exchangeMade.bookName}}
+          <h4>{{value.exchangeMade.bookName}}</h4>
         </a>
       </div>
-      <div class="inblock text-left col-xs-6">
-        <div class="col-xs-12">This is your book</div>
+      <div class=" col-xs-6 col-sm-3 exchange__divider">
+        <div class="col-xs-12 ptb15 exchange__title">This is your book</div>
         <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
-        <a class="col-xs-12 ptb15 transitioned heee" href="/book/{{value._id}}">
-          {{value.bookName}}
-        </a>
+        <span class="col-xs-12 ptb15 transitioned heee">
+          <h4>
+              {{value.bookName}}
+          </h4>
+        </span>
       </div>
-  </div>
+    </div>
 </div>

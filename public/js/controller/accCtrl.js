@@ -5,6 +5,7 @@ mainApp.controller('AccountController', function($scope,$http,$location,myhttp) 
     city:'',
     state:''
   };
+  $scope._update=false;
   ($scope.update=function(){
       $scope._update=true;  //start from _ means loading flag for that function name
       $scope.E_update="";  //start from E_ means error string for that function name
@@ -12,7 +13,6 @@ mainApp.controller('AccountController', function($scope,$http,$location,myhttp) 
           url:'/updateprofile',method:'POST',data:{info:$scope.formdata}
       }).then(function(d){
         $scope.formdata=d;
-        $scope.C_update='Updated!';
       },function(err){
           $scope.E_update=err;
       }).finally(function(){

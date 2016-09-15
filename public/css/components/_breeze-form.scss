@@ -1,0 +1,102 @@
+//Idea taken from http://codepen.io/Lewitje/pen/BNNJjo
+//But then modified for original version refer the url
+
+
+$prim: #539376;
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+
+	font-weight: 300;
+}
+
+.form-wrapper{
+	font-family: 'Source Sans Pro', sans-serif;
+	font-weight: 300;
+	background: #50a3a2;
+	background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	background: -moz-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
+	background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
+	margin: 0 auto;
+	text-align: center;
+
+	width: 100%;
+	overflow: hidden;
+	@include modifier('reset-bg'){
+		background: none;
+	}
+
+	::-webkit-input-placeholder { /* WebKit browsers */
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 300;
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+		font-family: 'Source Sans Pro', sans-serif;
+		 opacity:  1;
+		font-weight: 300;
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+		font-family: 'Source Sans Pro', sans-serif;
+		 opacity:  1;
+		font-weight: 300;
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+		font-family: 'Source Sans Pro', sans-serif;
+		font-weight: 300;
+	}
+
+	@include element('title'){
+		font-size: 40px;
+		transition-duration: 1s;
+		transition-timing-function: ease-in-put;
+		font-weight: 200;
+	}
+	@include element('form'){
+		padding: 20px 0;
+		position: relative;
+		z-index: 2;
+	}
+	@include element('input'){
+		display: block;
+		outline: 0;
+		border: 1px solid fade(white, 40%);
+		width: 250px;
+		border-radius: 3px;
+		padding: 10px 15px;
+		margin: 0 auto 10px auto;
+		display: block;
+		text-align: center;
+		font-size: 18px;
+		transition-duration: 0.25s;
+		font-weight: 300;
+
+
+		&:focus{
+			width: 300px;
+
+			color: $prim;
+		}
+	}
+
+	@include element('button'){
+		appearance: none;
+		outline: 0;
+		background-color: white;
+		border: 0;
+		padding: 10px 15px;
+		color: $prim;
+		border-radius: 3px;
+		width: 250px;
+		cursor: pointer;
+		font-size: 18px;
+		transition-duration: 0.25s;
+
+		&:hover{
+			background-color: rgb(245, 247, 249);
+		}
+	}
+
+}

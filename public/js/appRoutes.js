@@ -5,33 +5,27 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
     // home page
     .when('/', {
         templateUrl: 'views/allbooks.html',
-        controller: 'AllBooksController',
-        css: 'css/books.css'
+        controller: 'AllBooksController'
    })
     .when('/mybooks', {
         templateUrl: 'views/mybooks.html',
-        controller: 'MyMainController',
-        css: 'css/books.css'
+        controller: 'MyMainController'
     })
     .when('/book/:string', {
         templateUrl: 'views/book.html',
-        controller: 'BookController',
-        css: 'css/books.css'
+        controller: 'BookController'
     })
     .when('/received', {
         templateUrl: 'views/received.html',
-        controller: 'ReceivedController',
-        css: 'css/books.css'
+        controller: 'ReceivedController'
     })
     .when('/sent', {
         templateUrl: 'views/sent.html',
-        controller: 'SentController',
-        css: 'css/books.css'
+        controller: 'SentController'
     })
     .when('/account', {
         templateUrl: 'views/account.html',
-        controller: 'AccountController',
-        css: 'css/books.css'
+        controller: 'AccountController'
     })
     .when('/login/google', {
         controller : function(){

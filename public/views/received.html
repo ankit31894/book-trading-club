@@ -1,28 +1,42 @@
-<div ng-if="_getLoggedStatus">Checking Logged In Status</div>
-<div ng-if="E_getLoggedStatus">{{E_getLoggedStatus}} <a href="#" ng-click="getLoggedStatus()">Try Again</a></div>
-<div>
-  <h3>
-    Received Trades
-  </h3>
-  <div ng-if="_getComingBooks">Loading</div>
-  <div ng-if="E_getComingBooks">{{E_getComingBooks}} <a href="#" ng-click="getComingBooks()">Try Again</a></div>
-  <div ng-repeat="(key, value) in books" class="text-center col-xs-12">
-    <div ng-repeat="(key1, value1) in value.exchangeReceived" class="text-center row"> 
-      <div class="inblock text-right col-xs-6">
-        <div class="col-xs-12">This is your book</div>
-        <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
-        <a class="col-xs-12 ptb15 transitioned heee" href="/book/{{value._id}}">
-          {{value.bookName}}
-        </a>
-      </div>
-      <div class="inblock text-left col-xs-6">
-        <div class="col-xs-12">You  will get this book</div>
-        <img src="http://images.amazon.com/images/P/{{value1.isbn}}.01.20TRZZZZ.jpg">
-        <a class="col-xs-12 ptb15 transitioned heee" href="/book/{{value1._id}}">
-          {{value1.bookName}}
-        </a>
-      </div>
-      <div class="col-xs-12"><button ng-click="acceptTrade(value._id,value1._id)">Accept Trade</button></div>
+<div class="book-container text-center">
+	<div class="book-container__header pb15 mb30">
+		Received Trades
+	</div>
+    <h3 ng-if="(books.length===0||books.exchangeReceived.length===0)&&!_getComingBooks">No Trades to Show</h3>
+    <div ng-if="_getComingBooks">Loading</div>
+    <h3 ng-if="E_getComingBooks">{{E_getComingBooks}} <a href="#" ng-click="getComingBooks()">Try Again</a></h3>
+
+    <div ng-repeat="(key, value) in books" class="exchange">
+        <div ng-repeat="(key1, value1) in value.exchangeReceived">
+            <div class=" col-xs-6 col-sm-3 col-sm-offset-3">
+                <div class="col-xs-12 ptb15 exchange__title">Your book</div>
+                <img src="http://images.amazon.com/images/P/{{value.isbn}}.01.20TRZZZZ.jpg">
+                <span class="col-xs-12 ptb15 transitioned heee">
+                    <h4>
+                        {{value.bookName}}
+                    </h4>
+                </span>
+            </div>
+            <div class=" col-xs-6 col-sm-3 exchange__divider">
+                <div class="col-xs-12 ptb15 exchange__title">You will get this book</div>
+                <img src="http://images.amazon.com/images/P/{{value1.isbn}}.01.20TRZZZZ.jpg">
+                <a class="col-xs-12 ptb15 transitioned heee" href="/book/{{value1._id}}">
+                    <h4>
+                        {{value1.bookName}}
+                    </h4>
+                </a>
+            </div>
+            <div class="col-xs-12">
+
+
+                <div class="form-wrapper form-wrapper--reset-bg">
+                		<form class="form-wrapper__form" ng-submit="acceptTrade(value._id,value1._id)">
+                			<button type="submit" class="form-wrapper__button">
+                                {{_acceptTrade===true?'Accepting':'Accept'}}
+                            </button>
+                		</form>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>

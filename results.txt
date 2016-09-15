@@ -1,31 +1,31 @@
 
 [0m[0m
 [0m  Insert User Test[0m
-  [32m  ✓[0m[90m should insert a user with google.id 1234[0m[31m (369ms)[0m
-  [32m  ✓[0m[90m should insert a user with google.id 12345[0m
+  [32m  ✓[0m[90m should insert a user with google.id 1234[0m[31m (853ms)[0m
+  [32m  ✓[0m[90m should insert a user with google.id 12345[0m[33m (45ms)[0m
   [32m  ✓[0m[90m should insert a user with google.id 123456[0m
 { name: 'Ankit' }
 { info: { name: 'Ankit' } }
 12
-  [32m  ✓[0m[90m should update user1[0m
-  [32m  ✓[0m[90m should insert a new book for user1[0m[31m (331ms)[0m
+  [32m  ✓[0m[90m should update user1[0m[31m (154ms)[0m
+  [32m  ✓[0m[90m should insert a new book for user1[0m[31m (648ms)[0m
   [32m  ✓[0m[90m should insert a new book for user 2[0m
   [32m  ✓[0m[90m should insert a new book for user 3[0m
   [32m  ✓[0m[90m should insert a second book for user 3[0m
-  [32m  ✓[0m[90m should get all book excluding user 3"s book[0m
+  [32m  ✓[0m[90m should get all book excluding user 3"s book[0m[31m (76ms)[0m
   [32m  ✓[0m[90m should get all books[0m
   [32m  ✓[0m[90m should propose book1 for book2[0m
   [32m  ✓[0m[90m should propose book3 for book2[0m
   [32m  ✓[0m[90m should propose book4 for book1[0m
-  [32m  ✓[0m[90m should get user2"s book receivedBook[0m
+  [32m  ✓[0m[90m should get user2"s book receivedBook[0m[33m (48ms)[0m
   [32m  ✓[0m[90m should get user1"s book proposals[0m
 []
   [32m  ✓[0m[90m should get user1"s book proposals[0m
   [32m  ✓[0m[90m should get user3"s book and his exchangemade will be occupied[0m
   [32m  ✓[0m[90m should get user3"s second book and his exchangemade will be occupied[0m
-  [32m  ✓[0m[90m should accept book1 for book2[0m
+  [32m  ✓[0m[90m should accept book1 for book2[0m[31m (104ms)[0m
   [32m  ✓[0m[90m should get user3"s book and his exchangemade will not be occupied[0m
 
 
-[92m [0m[32m 20 passing[0m[90m (937ms)[0m
+[92m [0m[32m 20 passing[0m[90m (3s)[0m
 

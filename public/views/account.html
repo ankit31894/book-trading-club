@@ -1,25 +1,15 @@
-<div ng-if="_update" class="text-center">Loading Information...</div>
-<form  ng-submit="update()">
-<div class="col-xs-6 text-right ptb10">
-  Name : 
+
+
+<div class="form-wrapper ptb100">
+		<h1 class="form-wrapper__title">Account Information</h1>
+
+		<form class="form-wrapper__form" ng-submit="update()">
+            <span ng-if="_update" class="text-center">Loading Information...</span>
+            <input type="text" class="form-wrapper__input" ng-model="formdata.name" placeholder="Name">
+            <input type="text" class="form-wrapper__input" ng-model="formdata.city" placeholder="City">
+            <input type="text" class="form-wrapper__input" ng-model="formdata.state" placeholder="State">
+			<button type="submit" class="form-wrapper__button">
+                {{_update===false?'Updated':'Updating'}}
+            </button>
+		</form>
 </div>
-<div class="col-xs-6 text-left ptb10">
-  <input ng-model="formdata.name" />
-</div>
-<div class="col-xs-6 text-right ptb10">
-  City : 
-</div>
-<div class="col-xs-6 text-left ptb10">
-  <input ng-model="formdata.city" /> 
-</div>
-<div class="col-xs-6 text-right ptb10">
-  State : 
-</div>
-<div class="col-xs-6 text-left ptb10">
-  <input ng-model="formdata.state" /> 
-</div>
-<div class="col-xs-6 col-xs-offset-6 text-left ptb10">
-  <input type="submit" value="Update" />
-  <span ng-if="C_update">{{C_update}}</span> 
-</div>
-</form>

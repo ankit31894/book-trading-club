@@ -16,20 +16,6 @@ mainApp.controller('AllBooksController', function($scope,$http,$location,myhttp)
       });
   })();
 
-  ($scope.getLoggedStatus=function(){
-      $scope._getLoggedStatus=true;
-      $scope.E_getLoggedStatus="";
-      myhttp.fetch({
-          url:'/checklogged',method:'GET'
-      }).then(function(d){
-          if(d=="1")
-            $scope.logged=true;
-      },function(err){
-        if(err.code!==401)$scope.E_getLoggedStatus="Can't Check whether you are logged In";
-      }).finally(function(){
-          $scope._getLoggedStatus=false;
-      });
-  })();
 
 });
 

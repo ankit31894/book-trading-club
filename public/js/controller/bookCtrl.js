@@ -1,6 +1,7 @@
 var mainApp=angular.module('BookCtrl', []);
 mainApp.controller('BookController',['$scope','$http','$routeParams','myhttp','$location', function($scope,$http,$routeParams,myhttp,$location) {
   $scope.wishbook = $routeParams.string;
+  $scope.myBooks=[];
   ($scope.getBook=function(){
       $scope.books=[];
       $scope._getBook=true;  //start from _ means loading flag for that function name
@@ -39,7 +40,7 @@ mainApp.controller('BookController',['$scope','$http','$routeParams','myhttp','$
       }).then(function(d){
           $location.path("/sent");
       },function(err){
-          
+
           $scope.E_proposeTrade=err;
       }).finally(function(){
           $scope._proposeTrade=false;
