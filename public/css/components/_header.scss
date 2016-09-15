@@ -15,9 +15,26 @@
          text-shadow:
            -1px -1px 1px #111,
            2px 2px 1px #363636;
-      
+
 
     }
+    @include element('beauty-btn'){
+    	background:none;
+    	border:none;
+    	border-right:solid 1px #ccc;
+        font-family:'Source Sans Pro';
+        font-weight: 200;
+    	color:#fff;
+    	padding:0px 10px;
+        &:last-child{
+        	border-right:none;
+        }
+        &:hover{
+        	color:#ccc;
+        }
+
+    }
+
     @include element('btn'){
 
         color: #fff;

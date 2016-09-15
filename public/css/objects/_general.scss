@@ -126,27 +126,6 @@ body{
 @include ptb(100);
 @include ptb(15);
 @include ptb(20);
-.block{
-	display:block;
-}
-.inblock{
-	display:inline-block;
-}
-.beauty-button{
-	background:none;
-	border:none;
-	border-right:solid 1px #ccc;
-    font-family:'Source Sans Pro';
-    font-weight: 200;
-	color:#fff;
-	padding:0px 10px;
-}
-.beauty-button:last-child{
-	border-right:none;
-}
-.beauty-button:hover{
-	color:#ccc;
-}
 .beauty-bg{
     background: #fff;
    background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
@@ -155,4 +134,7 @@ body{
    background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
    background-attachment: fixed;
 
+}
+.bright{
+    border-right: solid 1px #73efc8;
 }

@@ -164,32 +164,6 @@ body {
   padding-bottom: 20px;
 }
 
-.block {
-  display: block;
-}
-
-.inblock {
-  display: inline-block;
-}
-
-.beauty-button {
-  background: none;
-  border: none;
-  border-right: solid 1px #ccc;
-  font-family: 'Source Sans Pro';
-  font-weight: 200;
-  color: #fff;
-  padding: 0px 10px;
-}
-
-.beauty-button:last-child {
-  border-right: none;
-}
-
-.beauty-button:hover {
-  color: #ccc;
-}
-
 .beauty-bg {
   background: #fff;
   background: -webkit-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
@@ -197,6 +171,10 @@ body {
   background: -o-linear-gradient(top left, #50a3a2 0%, #53e3a6 100%);
   background: linear-gradient(to bottom right, #50a3a2 0%, #53e3a6 100%);
   background-attachment: fixed;
+}
+
+.bright {
+  border-right: solid 1px #73efc8;
 }
 
 .header__elegantshadow {
@@ -211,6 +189,21 @@ body {
   background-color: #2d2d2d;
   letter-spacing: .1em;
   text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
+}
+.header__beauty-btn {
+  background: none;
+  border: none;
+  border-right: solid 1px #ccc;
+  font-family: 'Source Sans Pro';
+  font-weight: 200;
+  color: #fff;
+  padding: 0px 10px;
+}
+.header__beauty-btn:last-child {
+  border-right: none;
+}
+.header__beauty-btn:hover {
+  color: #ccc;
 }
 .header__btn {
   color: #fff;
