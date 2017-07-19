@@ -1,9 +1,8 @@
 module.exports = {
 
     'googleAuth' : {
-        'clientID'      : '719744220001-s8020j9jnvl829tapvk9b1ssoirr1gff.apps.googleusercontent.com',
-        'clientSecret'  : 'oqvSKSojpbCchOFARYe2Aw0b',
-        'callbackURL'   : 'https://ankit31894-btc.herokuapp.com/login/google/callback'
+        'clientID'      : '273010040020-kiotshn3u2i0r6ea5fbkrh6jpc8pvgnd.apps.googleusercontent.com',
+        'clientSecret'  : process.env.clientSecret,
+        'callbackURL'   : process.env.callbackURL
     }
-
 };
