@@ -1,5 +1,5 @@
 var mongoose=require('mongoose');
-var URI = require('./index.js').db.url;
+var URI = require('./' + process.env.config).db.url;
     //first database for production mode and second database for testing mode
 mongoose.connection.on('error', function (err) {
   console.log('Could not connect to mongo server!');
